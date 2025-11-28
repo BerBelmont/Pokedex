@@ -22,8 +22,3 @@ O Maven baixa o JavaFX e inicia o `MainApp` configurado no plugin `org.openjfx:j
 - `pom.xml` – dependências JavaFX e JSON
 
 
-
-## Próximos passos
-- Atualize este README com screenshot da interface.
-- Adicione uma licença (ex.: MIT) se for publicar como open source.
-- Configure GitHub Actions para builds automáticos (opcional).

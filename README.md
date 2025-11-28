@@ -21,27 +21,7 @@ O Maven baixa o JavaFX e inicia o `MainApp` configurado no plugin `org.openjfx:j
 - `src/main/resources/style.css` – tema customizado
 - `pom.xml` – dependências JavaFX e JSON
 
-## Publicando no GitHub
-1. Verifique o estado do repositório:
-   ```powershell
-   cd "C:\projeto quarkus\pokedex"
-   git status -sb
-   ```
-2. Adicione e faça o commit inicial (caso ainda não exista):
-   ```powershell
-   git add .
-   git commit -m "feat: bootstrap Pokedex JavaFX"
-   ```
-3. Crie um repositório vazio no GitHub (sem README) e copie a URL HTTPS ou SSH.
-4. Configure o branch principal e o remoto:
-   ```powershell
-   git branch -M main
-   git remote add origin <URL_DO_REPO>
-   ```
-5. Envie o código:
-   ```powershell
-   git push -u origin main
-   ```
+
 
 ## Próximos passos
 - Atualize este README com screenshot da interface.

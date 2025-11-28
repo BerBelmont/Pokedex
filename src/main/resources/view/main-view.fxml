@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="br.unijui.pokedexjavafx.MainController"
+            stylesheets="@/style.css"
+            styleClass="pokedex-root">
+
+    <center>
+        <!-- HBox agora preenche a altura e divide bem os painéis -->
+        <HBox alignment="CENTER"
+              spacing="30"
+              styleClass="pokedex-body"
+              fillHeight="true">
+
+            <!-- ================== LADO ESQUERDO ================== -->
+
+            <VBox spacing="12"
+                  styleClass="left-panel"
+                  HBox.hgrow="ALWAYS"
+                  prefWidth="420"
+                  maxWidth="Infinity">
+                <padding>
+                    <Insets top="15" right="15" bottom="15" left="15"/>
+                </padding>
+
+                <!-- Luzes -->
+                <HBox spacing="8" styleClass="top-lights" alignment="CENTER_LEFT">
+                    <Pane styleClass="big-light"/>
+                    <Pane styleClass="small-light green-light"/>
+                    <Pane styleClass="small-light yellow-light"/>
+                    <Pane styleClass="small-light red-light"/>
+                </HBox>
+
+                <!-- Tela principal agora cresce com o painel -->
+                <StackPane styleClass="main-screen"
+                           VBox.vgrow="ALWAYS">
+                    <VBox alignment="CENTER" spacing="8">
+                        <ImageView fx:id="imgPokemon"
+                                   fitWidth="220" fitHeight="220"
+                                   preserveRatio="true"/>
+                        <Label fx:id="lblNome" text="Nome: -" />
+                        <Label fx:id="lblId" text="ID: -" />
+                        <Label fx:id="lblTipos" text="Tipos: -" />
+                    </VBox>
+                </StackPane>
+
+                <!-- Área inferior -->
+                <VBox spacing="6" styleClass="bottom-area">
+                    <HBox spacing="8">
+                        <TextField fx:id="txtNome"
+                                   promptText="Nome ou ID do Pokémon"
+                                   HBox.hgrow="ALWAYS"/>
+                        <Button text="Buscar" onAction="#onBuscar"/>
+                    </HBox>
+                    <Label fx:id="lblStatus" text="" styleClass="status-label"/>
+                </VBox>
+            </VBox>
+
+
+            <!-- ================== LADO DIREITO ================== -->
+
+            <VBox spacing="10"
+                  styleClass="right-panel"
+                  HBox.hgrow="ALWAYS"
+                  prefWidth="420"
+                  maxWidth="Infinity">
+                <padding>
+                    <Insets top="15" right="15" bottom="15" left="15"/>
+                </padding>
+
+                <!-- Tela verde também cresce com o painel -->
+                <StackPane styleClass="info-screen"
+                           VBox.vgrow="ALWAYS">
+                    <VBox spacing="8" alignment="TOP_LEFT">
+
+                        <Label text="Dados do Pokémon"
+                               styleClass="info-title"/>
+
+                        <Label fx:id="lblAltura"
+                               text="Altura: -"
+                               styleClass="info-text"/>
+                        <Label fx:id="lblPeso"
+                               text="Peso: -"
+                               styleClass="info-text"/>
+                        <Label fx:id="lblBaseExp"
+                               text="Base EXP: -"
+                               styleClass="info-text"/>
+
+                        <Separator/>
+
+                        <Label text="Base Stats"
+                               styleClass="info-title"/>
+
+                        <GridPane hgap="6" vgap="4">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="15"/>
+                                <ColumnConstraints percentWidth="85"/>
+                            </columnConstraints>
+
+                            <!-- HP -->
+                            <Label text="HP"/>
+                            <ProgressBar fx:id="barHp"
+                                         GridPane.columnIndex="1"
+                                         maxWidth="Infinity"
+                                         styleClass="stat-bar"/>
+
+                            <!-- ATK -->
+                            <Label text="ATK" GridPane.rowIndex="1"/>
+                            <ProgressBar fx:id="barAtk"
+                                         GridPane.columnIndex="1"
+                                         GridPane.rowIndex="1"
+                                         maxWidth="Infinity"
+                                         styleClass="stat-bar"/>
+
+                            <!-- DEF -->
+                            <Label text="DEF" GridPane.rowIndex="2"/>
+                            <ProgressBar fx:id="barDef"
+                                         GridPane.columnIndex="1"
+                                         GridPane.rowIndex="2"
+                                         maxWidth="Infinity"
+                                         styleClass="stat-bar"/>
+
+                            <!-- SPD -->
+                            <Label text="SPD" GridPane.rowIndex="3"/>
+                            <ProgressBar fx:id="barSpd"
+                                         GridPane.columnIndex="1"
+                                         GridPane.rowIndex="3"
+                                         maxWidth="Infinity"
+                                         styleClass="stat-bar"/>
+                        </GridPane>
+                    </VBox>
+                </StackPane>
+            </VBox>
+
+        </HBox>
+    </center>
+
+</BorderPane>
